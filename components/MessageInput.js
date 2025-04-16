@@ -1,7 +1,6 @@
-
 import FadeInView from "./FadeInView";
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TextInput, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { sendMessageToGroup } from '../services/GroupChatService';
 import { theme } from '../themes/theme';
 
@@ -18,20 +17,24 @@ const MessageInput = ({ groupId, onSend }) => {
 
   return (
     <FadeInView>
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        value={messageText}
-        onChangeText={setMessageText}
-        placeholder=t(" ...")
-        placeholderTextColor={theme.colors.textLight}
-        multiline
-      />
-      <TouchableOpacity style={styles.button} onPress={handleSend} accessibilityLabel="כפתור פעולה" accessible={true}>
-        <Text style={styles.buttonText} accessibilityLabel=t("תוכן נגיש")></Text accessibilityLabel=t("תוכן נגיש")>
-      </TouchableOpacity>
-    </View>
-      </FadeInView>
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          value={messageText}
+          onChangeText={setMessageText}
+          placeholder="כתוב כאן הודעה..."
+          placeholderTextColor={theme.colors.textLight}
+          multiline
+        />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleSend}
+          accessibilityLabel="שלח הודעה"
+        >
+          <Text style={styles.buttonText}>שלח</Text>
+        </TouchableOpacity>
+      </View>
+    </FadeInView>
   );
 };
 
@@ -68,15 +71,3 @@ const styles = StyleSheet.create({
 });
 
 export default MessageInput;
-
-// Firestore collection reference: users
-// collection(db, "users")
-
-// Firestore collection reference: matches
-// collection(db, "matches")
-
-// Firestore collection reference: messages
-// collection(db, "messages")
-
-// Firestore collection reference: notifications
-// collection(db, "notifications")

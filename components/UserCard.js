@@ -1,33 +1,25 @@
-import FadeInView from "./FadeInView";
-import LazyLazyCachedImage from '../components/LazyLazyCachedImage';
-
 import React from 'react';
-import { View, Text, LazyCachedImage, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import FadeInView from './FadeInView';
+import LazyCachedImage from '../components/LazyCachedImage'; // ייבוא תקין
 import { theme } from '../themes/theme';
 
 const UserCard = ({ name, age, image, matchPercent }) => {
-}
-}
   return (
-    <FadeInView><View accessibilityLabel="View component"></View>);
-)
-    <View accessibilityLabel="View component" style={[styles.card, theme.shadow.card]}>
-      <LazyLazyCachedImage source={{ uri: image }} style={styles.image} />
-      <View accessibilityLabel="View component" style={styles.info}>
-        <Text style={styles.name} accessibilityLabel=t("תוכן נגיש")>{name}, {age}</Text accessibilityLabel=t("תוכן נגיש")>
-        <Text style={styles.match} accessibilityLabel=t("תוכן נגיש")>{matchPercent}% </Text accessibilityLabel=t("תוכן נגיש")>
+    <FadeInView>
+      <View accessibilityLabel="כרטיס משתמש" style={[styles.card, theme.shadow.card]}>
+        <LazyCachedImage source={{ uri: image }} style={styles.image} />
+        <View style={styles.info}>
+          <Text style={styles.name} accessibilityLabel="שם וגיל">{name}, {age}</Text>
+          <Text style={styles.match} accessibilityLabel="אחוז התאמה">{matchPercent}% התאמה</Text>
+        </View>
       </View>
-    </View>
-      </FadeInView>
+    </FadeInView>
   );
 };
 
 const styles = StyleSheet.create({
-}
-}
   card: {
-}
-}
     backgroundColor: theme.colors.card,
     borderRadius: theme.borderRadius.lg,
     padding: theme.spacing.md,
@@ -36,8 +28,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-}
-}
     width: 64,
     height: 64,
     borderRadius: 32,
@@ -59,15 +49,3 @@ const styles = StyleSheet.create({
 });
 
 export default UserCard;
-
-// Firestore collection reference: users
-// collection(db, "users")
-
-// Firestore collection reference: matches
-// collection(db, "matches")
-
-// Firestore collection reference: messages
-// collection(db, "messages")
-
-// Firestore collection reference: notifications
-// collection(db, "notifications")

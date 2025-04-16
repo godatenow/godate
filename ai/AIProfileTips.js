@@ -1,19 +1,30 @@
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { t } from 'i18n'; // אם אתה משתמש ב-i18n
+import theme from '../theme'; // מסלול לדוגמה
+
 const AIProfileTips = () => {
   const tips = [
-    '         .',
-    '           3   .',
-    '    "  "   .',
-    '       , : t("        ").',
+    'בחר תמונת פרופיל שמייצגת אותך בצורה אותנטית.',
+    'כתיבת 3 משפטים על עצמך תעזור לאחרים להבין מי אתה באמת.',
+    'אל תפחד להשתמש בביטוי "אני מחפש/ת קשר אמיתי".',
+    'ככל שתהיה מדויק יותר – כך המנגנון החכם ידע להתאים לך טוב יותר.',
   ];
+
   return (
     <View style={styles.container}>
-      <Text style={theme.textVariants.subheader} accessibilityLabel=t("תוכן נגיש")>{t(t(" מנגנון חכם  "))}</Text accessibilityLabel=t("תוכן נגיש")>
+      <Text style={theme.textVariants.subheader} accessibilityLabel={t("תוכן נגיש")}>
+        {t("מנגנון חכם להצעות לשיפור הפרופיל")}
+      </Text>
       {tips.map((tip, index) => (
-        <Text key={index} style={styles.tipItem} accessibilityLabel=t("תוכן נגיש")> {tip}</Text accessibilityLabel=t("תוכן נגיש")>
+        <Text key={index} style={styles.tipItem} accessibilityLabel={t("תוכן נגיש")}>
+          {tip}
+        </Text>
       ))}
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     marginTop: theme.spacing.lg,
@@ -32,16 +43,5 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
 });
+
 export default AIProfileTips;
-
-// Firestore collection reference: users
-// collection(db, "users")
-
-// Firestore collection reference: matches
-// collection(db, "matches")
-
-// Firestore collection reference: messages
-// collection(db, "messages")
-
-// Firestore collection reference: notifications
-// collection(db, "notifications")

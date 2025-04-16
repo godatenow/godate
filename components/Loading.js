@@ -1,13 +1,14 @@
 import FadeInView from '../components/FadeInView';
-
 import React from 'react';
 import { ActivityIndicator, View, StyleSheet } from 'react-native';
 import { theme } from '../themes/theme';
 
 const Loading = () => (
-  <View style={styles.container}>
-    <ActivityIndicator size=t("large") color={theme.colors.primary} />
-  </View>
+  <FadeInView>
+    <View style={styles.container}>
+      <ActivityIndicator size="large" color={theme.colors.primary} />
+    </View>
+  </FadeInView>
 );
 
 const styles = StyleSheet.create({
@@ -20,15 +21,3 @@ const styles = StyleSheet.create({
 });
 
 export default Loading;
-
-// Firestore collection reference: users
-// collection(db, "users")
-
-// Firestore collection reference: matches
-// collection(db, "matches")
-
-// Firestore collection reference: messages
-// collection(db, "messages")
-
-// Firestore collection reference: notifications
-// collection(db, "notifications")

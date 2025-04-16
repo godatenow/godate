@@ -1,4 +1,3 @@
-
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const vision = require('@google-cloud/vision');
@@ -9,38 +8,78 @@ const storage = admin.storage().bucket();
 const client = new vision.ImageAnnotatorClient();
 
 exports.verifyProfileImage = functions.https.onCall(async (data, context) => {
+  // וידוא קלט
+  if (!data.userId) {
+    throw new functions.https.HttpsError(
+      'invalid-argument',
+      'נדרש מזהה משתמש'
+    );
+  }
+
   const userId = data.userId;
   const imagePath = `verifications/${userId}.jpg`;
-  const file = storage.file(imagePath);
 
   try {
+    // בדיקת קיום התמונה
+    const [exists] = await storage.file(imagePath).exists();
+    if (!exists) {
+      return { 
+        success: false, 
+        reason: 'לא נמצאה תמונה לאימות. אנא העלה תמונה חדשה.' 
+      };
+    }
+
+    // ניתוח תמונה עם Google Vision
     const [result] = await client.faceDetection(`gs://${storage.name}/${imagePath}`);
     const faces = result.faceAnnotations;
 
     if (!faces || faces.length === 0) {
-      return { success: false, reason: '   ' };
+      return { 
+        success: false, 
+        reason: 'לא זוהה פנים בתמונה. אנא העלה תמונה ברורה של הפנים.' 
+      };
     }
 
-    const smiling = faces[0].joyLikelihood || '';
-    const headUp = faces[0].headwearLikelihood || '';
+    // בדיקת קריטריונים
+    const face = faces[0];
+    const smiling = face.joyLikelihood || '';
+    const headwear = face.headwearLikelihood || '';
+    const eyesOpen = face.eyesOpenLikelihood || '';
 
-    if (['LIKELY', 'VERY_LIKELY'].includes(smiling)) {
-      await db.collection('users').doc(userId).update({ isVerified: true });
-      return { success: true };
-    } else {
-      return { success: false, reason: '   ' };
+    // איסוף שגיאות
+    const errors = [];
+    
+    if (!['LIKELY', 'VERY_LIKELY'].includes(smiling)) {
+      errors.push('יש לחייך בתמונה');
     }
-  } catch (err) {
-    console.error('Face detection error:', err);
-    return { success: false, reason: '  ' };
+    
+    if (['LIKELY', 'VERY_LIKELY'].includes(headwear)) {
+      errors.push('אסור לחבוש כובע או משקפי שמש');
+    }
+    
+    if (!['LIKELY', 'VERY_LIKELY'].includes(eyesOpen)) {
+      errors.push('יש לפקוח עיניים');
+    }
+
+    if (errors.length > 0) {
+      return { 
+        success: false, 
+        reason: `תמונה לא מאושרת: ${errors.join(', ')}` 
+      };
+    }
+
+    // עדכון משתמש מאומת
+    await db.collection('users').doc(userId).update({ 
+      isVerified: true,
+      verificationDate: admin.firestore.FieldValue.serverTimestamp()
+    });
+
+    return { success: true };
+  } catch (error) {
+    console.error('שגיאה באימות תמונה:', error);
+    throw new functions.https.HttpsError(
+      'internal',
+      'אירעה שגיאה בעיבוד התמונה. נסה שוב מאוחר יותר.'
+    );
   }
 });
-
-// Firestore collection reference: matches
-// collection(db, "matches")
-
-// Firestore collection reference: messages
-// collection(db, "messages")
-
-// Firestore collection reference: notifications
-// collection(db, "notifications")

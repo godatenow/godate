@@ -1,16 +1,22 @@
+// messagesService.js
 import { sendMessageToFirestore, getMessagesFromFirestore } from './firestore';
-//    
 
-// Firestore collection reference: users
-// collection(db, "users")
+export async function sendMessage(message, senderId, recipientId) {
+  try {
+    await sendMessageToFirestore({ message, senderId, recipientId, timestamp: Date.now() });
+    return { success: true };
+  } catch (error) {
+    console.error("שגיאה בשליחת הודעה:", error);
+    return { success: false, error };
+  }
+}
 
-// Firestore collection reference: matches
-// collection(db, "matches")
-
-// Firestore collection reference: messages
-// collection(db, "messages")
-
-// Firestore collection reference: notifications
-// collection(db, "notifications")
-
-export default {};
+export async function fetchMessages(conversationId) {
+  try {
+    const messages = await getMessagesFromFirestore(conversationId);
+    return messages;
+  } catch (error) {
+    console.error("שגיאה בטעינת הודעות:", error);
+    return [];
+  }
+}
