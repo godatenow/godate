@@ -19,7 +19,7 @@ const LoveJournalScreen = () => {
   };
 
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>{t("  t(")}</Text accessibilityLabel=")תוכן נגיש">
       <TextInput
         style={styles.input}

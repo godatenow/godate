@@ -9,8 +9,7 @@ const questions = [
 ];
 const PersonalityQuizScreen = ({ navigation }) => {
   const theme = useTheme();
-  const { width } = useWindowDimensions();
-  const [step, setStep] = useState(0);
+    const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState([]);
   const handleNext = (answer) => {
     const updated = [...answers, answer];

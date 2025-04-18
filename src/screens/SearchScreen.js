@@ -13,7 +13,7 @@ import { View, TextInput, FlatList, Text, StyleSheet } from 'react-native';
 export default function SearchScreen() {
   const dummyResults = [{ id: '1', name: '' }, { id: '2', name: '' }];
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <TextInput style={styles.input} placeholder=t(" ...") / accessibilityLabel=t("תוכן נגיש")>
       <FlatList
         ListEmptyComponent={<EmptyState title='לא נמצאו תוצאות' subtitle='נסה שוב או שנה סינון' />}

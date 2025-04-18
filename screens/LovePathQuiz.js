@@ -6,12 +6,12 @@ const rtlStyles = {
 };
 
 
-import FadeInView from "./FadeInView";
+import FadeInView from "../src/FadeInView";
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import { theme } from '../themes/theme';
+import { theme } from '../src/theme/theme';
 import { useNavigation } from '@react-navigation/native';
-import { db, auth } from '../firebase/firebase';
+import { db, auth } from '../src/firebase/firebase';
 
 const sections = [
   {
@@ -64,10 +64,10 @@ const LovePathQuiz = () => {
     <FadeInView>
     <ScrollView contentContainerStyle={styles.container}>
       {sections.map((section, si) => (
-        <View style={rtlStyles} accessible={{true}} accessibilityLabel="אזור תצוגה" key={si}>
-          <Text style={styles.sectionTitle} accessibilityLabel=t("תוכן נגיש")>{section.title}</Text accessibilityLabel=t("תוכן נגיש")>
+        <View style={rtlStyles} accessible={true} accessibilityLabel="אזור תצוגה" key={si}>
+          <Text style={styles.sectionTitle} accessibilityLabel={t("תוכן נגיש")}>{section.title}</Text>
           {section.questions.map((q, qi) => (
-            <Text accessible={{true}} accessibilityLabel="טקסט"Input
+            <Text accessible={true} accessibilityLabel="טקסט"Input
               key={qi}
               style={styles.input}
               placeholder={q}
@@ -88,16 +88,16 @@ const LovePathQuiz = () => {
 
 </View>
       ))}
-      <Text style={styles.notesLabel} accessibilityLabel=t("תוכן נגיש")>{t(" t(")}</Text accessibilityLabel=")תוכן נגיש">
-      <Text accessible={{true}} accessibilityLabel="טקסט"Input
+      <Text style={styles.notesLabel} accessibilityLabel={t("תוכן נגיש")}></Text>
+      <Text accessible={true} accessibilityLabel="טקסט"Input
         style={[styles.input, { height: 100 }]}
         value={notes}
         onChangeText={setNotes}
         placeholder=" "
         multiline
       />
-      <TouchableOpacity accessible={{true}} accessibilityLabel="רכיב לחיץ" style={styles.submitButton} onPress={handleSubmit}>
-        <Text style={styles.submitText} accessibilityLabel=t("תוכן נגיש")>{t("  t(")}</Text accessibilityLabel=")תוכן נגיש">
+      <TouchableOpacity accessible={true} accessibilityLabel="רכיב לחיץ" style={styles.submitButton} onPress={handleSubmit}>
+        <Text style={styles.submitText} accessibilityLabel={t("תוכן נגיש")}></Text>
       </TouchableOpacity>
     </ScrollView>
       </FadeInView>
@@ -105,43 +105,43 @@ const LovePathQuiz = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    padding: theme.spacing.lg,
-    backgroundColor: theme.colors.background,
-  },
-  sectionTitle: {
-    fontSize: theme.typography.fontSize.lg,
-    fontFamily: theme.typography.fontFamily,
-    color: theme.colors.primary,
-    marginVertical: theme.spacing.md,
-  },
-  input: {
-    backgroundColor: '#f0f0f0',
-    padding: theme.spacing.sm,
-    borderRadius: theme.borderRadius.sm,
-    marginBottom: theme.spacing.sm,
-    fontFamily: theme.typography.fontFamily,
-    color: theme.colors.text,
-  },
-  notesLabel: {
-    fontSize: theme.typography.fontSize.base,
-    marginVertical: theme.spacing.sm,
-    fontFamily: theme.typography.fontFamily,
-    color: theme.colors.text,
-  },
-  submitButton: {
-    backgroundColor: theme.colors.primary,
-    padding: theme.spacing.md,
-    borderRadius: theme.borderRadius.lg,
-    alignItems: 'center',
-    marginTop: theme.spacing.lg,
-  },
-  submitText: {
-    color: theme.colors.background,
-    fontWeight: 'bold',
-    fontSize: theme.typography.fontSize.lg,
-    fontFamily: theme.typography.fontFamily,
-  },
+  // container: {
+  //   padding: 10,//theme.spacing.lg,
+  //   backgroundColor: '#fff',//theme.colors.background,
+  // },
+  // sectionTitle: {
+  //   fontSize: 16,//theme.typography.fontSize.lg,
+  //   fontFamily: theme.typography.fontFamily,
+  //   color: theme.colors.primary,
+  //   marginVertical: theme.spacing.md,
+  // },
+  // input: {
+  //   backgroundColor: '#f0f0f0',
+  //   // padding: theme.spacing.sm,
+  //   // borderRadius: theme.borderRadius.sm,
+  //   // marginBottom: theme.spacing.sm,
+  //   fontFamily: theme.typography.fontFamily,
+  //   color: theme.colors.text,
+  // },
+  // notesLabel: {
+  //   fontSize: theme.typography.fontSize.base,
+  //   // marginVertical: theme.spacing.sm,
+  //   fontFamily: theme.typography.fontFamily,
+  //   color: theme.colors.text,
+  // },
+  // submitButton: {
+  //   backgroundColor: theme.colors.primary,
+  //   padding: theme.spacing.md,
+  //   borderRadius: 10,//theme.borderRadius.lg,
+  //   alignItems: 'center',
+  //   marginTop: 20,//theme.spacing.lg,
+  // },
+  // submitText: {
+  //   color: 'black',//theme.colors.background,
+  //   fontWeight: 'bold',
+  //   fontSize: 16,//theme.typography.fontSize.lg,
+  //   fontFamily: theme.typography.fontFamily,
+  // },
 });
 
 export default LovePathQuiz;

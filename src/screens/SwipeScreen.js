@@ -20,7 +20,7 @@ const SwipeScreen = ({ route }) => {
   const [index, setIndex] = useState(0);
   const [visibleUsers, setVisibleUsers] = useState([]);
   
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500); // סימולציית טעינה

@@ -1,10 +1,8 @@
 
 import { theme } from '../../theme/theme';
-import { useWindowDimensions, Platform } from 'react-native';
+import {  Platform } from 'react-native';
 
-const { width } = useWindowDimensions();
 const isWeb = Platform.OS === 'web';
-const isLargeScreen = isWeb && width > 1024;
 
 import { db } from '../firebase/firebase';
 I18nManager.forceRTL(true);

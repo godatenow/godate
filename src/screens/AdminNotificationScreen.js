@@ -64,7 +64,7 @@ import { sendNotificationToUser } from '../utils/adminNotifications';
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <TextInput
         placeholder=" "
         value={userId}

@@ -20,7 +20,7 @@ const MatchProfileScreen = () => {
   };
 
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>{t(t("   "))}</Text accessibilityLabel=t("תוכן נגיש")>
       <FastImage resizeMode="cover" source={{ uri: match.image }} style={styles.image} / accessibilityLabel=t("תוכן נגיש")>
       <Text style={styles.name} accessibilityLabel=t("תוכן נגיש")>{match.name}, {match.age}</Text accessibilityLabel=t("תוכן נגיש")>

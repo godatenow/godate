@@ -37,7 +37,7 @@ const SuccessScreen = () => {
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <LazyImage
         source={require('../../assets/logo.png')}
         style={styles.logo}

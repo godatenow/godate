@@ -55,7 +55,7 @@ const PersonalityQuizScreen = () => {
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.question} accessibilityLabel=t("תוכן נגיש")>{questions[current]}</Text accessibilityLabel=t("תוכן נגיש")>
       <TouchableOpacity style={styles.option} onPress={() = accessibilityLabel="כפתור פעולה" accessible={true}> handleAnswer(' 1')}>
         <Text accessibilityLabel=t("תוכן נגיש")>{t(" 1t(")}</Text accessibilityLabel=")תוכן נגיש">

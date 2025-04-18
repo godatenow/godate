@@ -20,7 +20,7 @@ const GroupChatScreen = () => {
   const { groupId } = useRoute().params; // assuming groupId is passed as parameter
   const [messages, setMessages] = useState([]);
   const [messageText, setMessageText] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // Load messages from group chat
   const loadMessages = async () => {
@@ -85,7 +85,7 @@ const GroupChatScreen = () => {
 
   return (<FadeInView>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>{t(" t(")}</Text accessibilityLabel=")תוכן נגיש">
       {loading ? (
         <ActivityIndicator size=t("large") color={theme.colors.primary} />

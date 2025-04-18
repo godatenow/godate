@@ -16,7 +16,7 @@ import { theme } from '../themes/theme';
 
 const ProfileCoachScreen = () => {
   const [recommendations, setRecommendations] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const userId = auth.currentUser?.uid || 'demoUser';
 
   useEffect(() => {

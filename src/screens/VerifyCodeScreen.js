@@ -33,7 +33,7 @@ export default function VerifyCodeScreen({ route, navigation }) {
   };
 
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>      {email}</Text accessibilityLabel=t("תוכן נגיש")>
       <TextInput
         value={code}

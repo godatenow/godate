@@ -29,7 +29,7 @@ const MatchEmotionScreen = () => {
       <Text style={styles.header}>התאמות רגשיות</Text>
       {sampleMatches.map(match => (
         <AppCard key={match.id} title={match.name}>
-          <Image source={{ uri: match.image }} style={styles.image} / accessibilityLabel="תמונה" accessible={true}>
+          <Image source={{ uri: match.image }} style={styles.image}  accessibilityLabel="תמונה" accessible={true}/>
           <Text style={styles.text}>אחוז התאמה: {match.matchPercent}%</Text>
           <Text style={styles.text}>חיבור רגשי: {match.emotionScore}</Text>
           <Text style={styles.message}>{match.message}</Text>

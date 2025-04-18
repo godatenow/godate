@@ -5,7 +5,7 @@ const rtlStyles = {
   textAlign: 'right',
 };
 
-import FadeInView from "./FadeInView";
+import FadeInView from "../src/FadeInView";
 import React from 'react';
 import { View, Text, Button, Alert } from 'react-native';
 
@@ -13,8 +13,8 @@ export default function ReportUserScreen({ route }) {
   const { userId } = route.params || {};
   return (
     <FadeInView>
-    <View style={rtlStyles} accessible={{true}} accessibilityLabel="אזור תצוגה" style={{ padding: 20 }}>
-      <Text accessible={{true}} accessibilityLabel="טקסט">{{i18n.t('report_user')}}</Text>
+    <View style={rtlStyles} accessible={true} accessibilityLabel="אזור תצוגה" style={{ padding: 20 }}>
+      <Text accessible={true} accessibilityLabel="טקסט">{i18n.t('report_user')}</Text>
       <Button title="דווח על התנהגות לא נאותה" onPress={() => Alert.alert("הדיווח נשלח")} />
     </View>
       </FadeInView>

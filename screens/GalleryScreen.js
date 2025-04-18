@@ -5,7 +5,7 @@ const rtlStyles = {
   textAlign: 'right',
 };
 
-import FadeInView from "./FadeInView";
+import FadeInView from "../src/FadeInView";
 import React from 'react';
 import { View, FlatList, LazyCachedImage } from 'react-native';
 
@@ -22,7 +22,7 @@ export default function GalleryScreen() {
       keyExtractor={item => item.id}
       numColumns={2}
       renderItem={({ item }) => (
-        <LazyCachedImage accessible={{true}} accessibilityLabel="תמונה" source={{ uri: item.uri }} style={{ width: 150, height: 150, margin: 5 }} />
+        <LazyCachedImage accessible={true} accessibilityLabel="תמונה" source={{ uri: item.uri }} style={{ width: 150, height: 150, margin: 5 }} />
       )}
     />
       </FadeInView>

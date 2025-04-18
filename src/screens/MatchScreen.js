@@ -7,11 +7,9 @@ const rtlStyles = {
 
 
 import { theme } from '../../theme/theme';
-import { useWindowDimensions, Platform } from 'react-native';
+import {  Platform } from 'react-native';
 
-const { width } = useWindowDimensions();
 const isWeb = Platform.OS === 'web';
-const isLargeScreen = isWeb && width > 1024;
 
 import FadeInView from '../components/FadeInView';
 import React, { useState, useEffect } from 'react';
@@ -19,7 +17,7 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 
 export default function MatchScreen() {
   const [matches, setMatches] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -35,7 +33,7 @@ export default function MatchScreen() {
 
   return (<FadeInView>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>{t(" :t(")}</Text accessibilityLabel=")תוכן נגיש">
       {matches.map((m, i) => (
         <Text key={i} style={styles.match} accessibilityLabel=t("תוכן נגיש")>{m.name}, {m.age}</Text accessibilityLabel=t("תוכן נגיש")>

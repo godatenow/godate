@@ -6,10 +6,9 @@ const rtlStyles = {
 };
 
 
-import FadeInView from "./FadeInView";
+import FadeInView from "../src/FadeInView";
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet, I18nManager } from 'react-native';
-import i18n from '../locales/i18n';
 import { generateVerificationCode, sendCodeToUser, verifyCode } from '../services/twoFactorAuth';
 
 const TwoFactorScreen = ({ route, navigation }) => {
@@ -18,7 +17,7 @@ const TwoFactorScreen = ({ route, navigation }) => {
   const [realCode, setRealCode] = useState('');
 
   
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500); // סימולציית טעינה
@@ -76,9 +75,9 @@ useEffect(() => {
 
 </View>
   )}
- accessible={{true}} accessibilityLabel="אזור תצוגה" style={styles.container}>
-      <Text accessible={{true}} accessibilityLabel="טקסט" style={styles.title}>{i18n.t('enter_2fa_code')}</Text>
-      <Text accessible={{true}} accessibilityLabel="טקסט"Input
+ accessible={true} accessibilityLabel="אזור תצוגה" style={styles.container}>
+      <Text accessible={true} accessibilityLabel="טקסט" style={styles.title}>{i18n.t('enter_2fa_code')}</Text>
+      <Text accessible={true} accessibilityLabel="טקסט"Input
         style={styles.input}
         value={code}
         onChangeText={setCode}

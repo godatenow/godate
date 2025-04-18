@@ -6,12 +6,12 @@ const rtlStyles = {
 };
 
 
-import FadeInView from "./FadeInView";
+import FadeInView from "../src/FadeInView";
 import React from 'react';
 import { View, Text, TextInput, Button, StyleSheet, I18nManager } from 'react-native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import i18n from '../locales/i18n';
+import i18n from '../src/i18n';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email(i18n.t('invalid_email')).required(i18n.t('required')),
@@ -21,8 +21,8 @@ const validationSchema = Yup.object().shape({
 const RegisterScreen = () => {
   return (
     <FadeInView>
-    <View style={rtlStyles} accessible={{true}} accessibilityLabel="אזור תצוגה" style={styles.container}>
-      <Text accessible={{true}} accessibilityLabel="טקסט" style={styles.title}>{i18n.t('register_title')}</Text>
+    <View style={rtlStyles} accessible={true} accessibilityLabel="אזור תצוגה" style={styles.container}>
+      <Text accessible={true} accessibilityLabel="טקסט" style={styles.title}>{i18n.t('register_title')}</Text>
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={validationSchema}
@@ -31,16 +31,16 @@ const RegisterScreen = () => {
         }}
       >
         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-          <View style={rtlStyles} accessible={{true}} accessibilityLabel="אזור תצוגה">
-            <Text accessible={{true}} accessibilityLabel="טקסט"Input
+          <View style={rtlStyles} accessible={true} accessibilityLabel="אזור תצוגה">
+            <Text accessible={true} accessibilityLabel="טקסט"Input
               style={styles.input}
               placeholder={i18n.t('email')}
               onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
               value={values.email}
             />
-            {touched.email && errors.email && <Text accessible={{true}} accessibilityLabel="טקסט" style={styles.error}>{errors.email}</Text>}
-            <Text accessible={{true}} accessibilityLabel="טקסט"Input
+            {touched.email && errors.email && <Text accessible={true} accessibilityLabel="טקסט" style={styles.error}>{errors.email}</Text>}
+            <Text accessible={true} accessibilityLabel="טקסט"Input
               style={styles.input}
               placeholder={i18n.t('password')}
               secureTextEntry
@@ -48,7 +48,7 @@ const RegisterScreen = () => {
               onBlur={handleBlur('password')}
               value={values.password}
             />
-            {touched.password && errors.password && <Text accessible={{true}} accessibilityLabel="טקסט" style={styles.error}>{errors.password}</Text>}
+            {touched.password && errors.password && <Text accessible={true} accessibilityLabel="טקסט" style={styles.error}>{errors.password}</Text>}
             <Button title={i18n.t('register')} onPress={handleSubmit} />
           
   {!loading && (

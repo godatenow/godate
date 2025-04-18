@@ -5,13 +5,12 @@ const rtlStyles = {
   textAlign: 'right',
 };
 
-import FadeInView from "./FadeInView";
-import * as apiService from '@services/apiService';
+import FadeInView from "../src/FadeInView";
 
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, FlatList, Alert } from 'react-native';
-import { theme } from '../themes/theme';
-import { db, auth } from '../firebase/firebase';
+import { theme } from '../src/theme/theme';
+import { db, auth } from '../src/firebase/firebase';
 
 const journeyData = [
   ' 1:     ?',
@@ -60,13 +59,14 @@ const LovePathJourney = () => {
 
     return (
     <FadeInView>
-      <TouchableOpacity accessible={{true}} accessibilityLabel="רכיב לחיץ"
+      <TouchableOpacity accessible={true} accessibilityLabel="רכיב לחיץ"
         style={[styles.card, isDone && styles.completed]}
         onPress={() => handleComplete(index)}
       >
-        <Text style={styles.cardText} accessibilityLabel=t("תוכן נגיש")>{item}</Text accessibilityLabel=t("תוכן נגיש")>
-        {isDone && <Text style={styles.status} accessibilityLabel=t("תוכן נגיש")>{t(" t(")}</Text accessibilityLabel=")תוכן נגיש">}
+        <Text style={styles.cardText} accessibilityLabel={t("תוכן נגיש")}></Text>{item}
+        {isDone && <Text style={styles.status} accessibilityLabel={t("תוכן נגיש")}></Text >}
       </TouchableOpacity>
+      </FadeInView>
     );
   };
 
@@ -83,30 +83,30 @@ const LovePathJourney = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    padding: theme.spacing.lg,
-    backgroundColor: theme.colors.background,
-  },
-  card: {
-    backgroundColor: theme.colors.card,
-    borderRadius: theme.borderRadius.md,
-    padding: theme.spacing.md,
-    marginBottom: theme.spacing.md,
-    ...theme.shadow.card,
-  },
-  completed: {
-    backgroundColor: '#dff0d8',
-  },
-  cardText: {
-    fontSize: theme.typography.fontSize.base,
-    fontFamily: theme.typography.fontFamily,
-    color: theme.colors.text,
-  },
-  status: {
-    marginTop: theme.spacing.sm,
-    color: theme.colors.success,
-    fontFamily: theme.typography.fontFamily,
-  },
+  // container: {
+  //   padding: theme.spacing.lg,
+  //   backgroundColor: theme.colors.background,
+  // },
+  // card: {
+  //   backgroundColor: theme.colors.card,
+  //   borderRadius: theme.borderRadius.md,
+  //   padding: theme.spacing.md,
+  //   marginBottom: theme.spacing.md,
+  //   ...theme.shadow.card,
+  // },
+  // completed: {
+  //   backgroundColor: '#dff0d8',
+  // },
+  // cardText: {
+  //   fontSize: theme.typography.fontSize.base,
+  //   fontFamily: theme.typography.fontFamily,
+  //   color: theme.colors.text,
+  // },
+  // status: {
+  //   marginTop: theme.spacing.sm,
+  //   color: theme.colors.success,
+  //   fontFamily: theme.typography.fontFamily,
+  // },
 });
 
 export default LovePathJourney;

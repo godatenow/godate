@@ -34,7 +34,7 @@ export default function EditProfileScreen() {
   };
 
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       {Object.keys(initialState).map((field) => (
         <TextInput
           key={field}

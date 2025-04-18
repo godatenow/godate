@@ -11,7 +11,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function LoginRegisterScreenUpdated({ navigation }) {
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>{t(t("  -GoDate"))}</Text accessibilityLabel=t("תוכן נגיש")>
       <TouchableOpacity style={styles.button} onPress={() = accessibilityLabel="כפתור פעולה" accessible={true}> navigation.navigate('Login')}>
         <Text style={styles.buttonText} accessibilityLabel=t("תוכן נגיש")></Text accessibilityLabel=t("תוכן נגיש")>

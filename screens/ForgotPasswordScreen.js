@@ -5,11 +5,11 @@ const rtlStyles = {
   textAlign: 'right',
 };
 
-import FadeInView from "./FadeInView";
+import FadeInView from "../src/FadeInView";
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../firebase/firebase';
+import { auth } from '../src/firebase/firebase';
 
 export default function ForgotPasswordScreen() {
   const [email, setEmail] = useState('');
@@ -23,9 +23,9 @@ export default function ForgotPasswordScreen() {
   };
   return (
     <FadeInView>
-    <View style={rtlStyles} accessible={{true}} accessibilityLabel="אזור תצוגה" style={{ padding: 20 }}>
-      <Text accessible={{true}} accessibilityLabel="טקסט">{{i18n.t('reset_password')}}</Text>
-      <Text accessible={{true}} accessibilityLabel="טקסט"Input placeholder="האימייל שלך" onChangeText={setEmail} />
+    <View style={rtlStyles} accessible={true} accessibilityLabel="אזור תצוגה" style={{ padding: 20 }}>
+      <Text accessible={true} accessibilityLabel="טקסט">{i18n.t('reset_password')}</Text>
+      <Text accessible={true} accessibilityLabel="טקסט"Input placeholder="האימייל שלך" onChangeText={setEmail} />
       <Button title="שלח קישור" onPress={handleReset} />
     </View>
       </FadeInView>

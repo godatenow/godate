@@ -7,11 +7,9 @@ const rtlStyles = {
 
 
 import EmptyState from '../../components/EmptyState';
-import { useWindowDimensions, Platform } from 'react-native';
+import {  Platform } from 'react-native';
 
-const { width } = useWindowDimensions();
 const isWeb = Platform.OS === 'web';
-const isLargeScreen = isWeb && width > 1024;
 
 
 import React, { useEffect, useState, useCallback } from 'react';
@@ -28,7 +26,7 @@ const ChatScreen = () => {
   const senderId = route.params?.userId || 'user1';
 
   
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500); // סימולציית טעינה

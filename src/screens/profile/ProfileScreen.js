@@ -7,11 +7,9 @@ const rtlStyles = {
 
 
 import { theme } from '../../theme/theme';
-import { useWindowDimensions, Platform } from 'react-native';
+import {  Platform } from 'react-native';
 
-const { width } = useWindowDimensions();
 const isWeb = Platform.OS === 'web';
-const isLargeScreen = isWeb && width > 1024;
 
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
@@ -21,7 +19,7 @@ export default function ProfileScreen() {
   const { user, logout } = useAuth();
 
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>{t(" t(")}</Text accessibilityLabel=")תוכן נגיש">
       <Text style={styles.info} accessibilityLabel=t("תוכן נגיש")>: {user?.name || ' '}</Text accessibilityLabel=t("תוכן נגיש")>
       <TouchableOpacity style={styles.button} onPress={logout} accessibilityLabel="כפתור פעולה" accessible={true}>

@@ -9,9 +9,7 @@ const rtlStyles = {
 import { theme } from '../../theme/theme';
 import { useWindowDimensions, Platform , I18nManager , Image, View } from 'react-native';
 
-const { width } = useWindowDimensions();
 const isWeb = Platform.OS === 'web';
-const isLargeScreen = isWeb && width > 1024;
 
 
 

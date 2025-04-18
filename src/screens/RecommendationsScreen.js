@@ -99,7 +99,7 @@ import { typography } from '../theme';
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <FlatList
         data={recommendations}
         keyExtractor={(item) => item.id}

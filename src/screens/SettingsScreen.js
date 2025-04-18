@@ -44,7 +44,7 @@ const SettingsScreen = ({ navigation }) => {
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")></Text accessibilityLabel=t("תוכן נגיש")>
 
       <TouchableOpacity style={styles.item} onPress={() = accessibilityLabel="כפתור פעולה" accessible={true}> navigation.navigate('TermsOfUse')}>

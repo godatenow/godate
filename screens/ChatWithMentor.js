@@ -6,19 +6,20 @@ const rtlStyles = {
 };
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { generateSmartOpener } from '../ai/פתיח רגשי מותאם';
+//  import { generateSmartOpener } from '../src/ai/פתיח רגשי מותאם';
 
 const ChatWithMentor = () => {
+  const [loading, setLoading] = useState(false);
   const matchName = 'יעל';
   const matchPercent = 92;
-  const opener = generateSmartOpener(matchName, matchPercent);
+  // const opener = generateSmartOpener(matchName, matchPercent);
 
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title}>פתיח חכם מ-מנגנון חכם</Text>
-      <Text style={styles.opener}>{opener}</Text>
+      {/* <Text style={styles.opener}>{opener}</Text> */}
     
   {!loading && (
     <View style={{ alignItems: 'center', marginTop: 40 }}>

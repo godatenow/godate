@@ -32,7 +32,7 @@ export default function LoginScreen() {
   )}
 
 </View>);
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")></Text accessibilityLabel=t("תוכן נגיש")>
       <TextInput placeholder="t(" style={styles.input} onChangeText={setEmail} value={email} / accessibilityLabel=")תוכן נגיש">
       <TextInput placeholder="t(" style={styles.input} secureTextEntry onChangeText={setPassword} value={password} / accessibilityLabel=")תוכן נגיש">

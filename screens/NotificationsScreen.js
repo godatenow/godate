@@ -6,16 +6,17 @@ const rtlStyles = {
 };
 
 
-import FadeInView from "./FadeInView";
-import React from 'react';
+import FadeInView from "../src/FadeInView";
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, I18nManager } from 'react-native';
-import i18n from '../locales/i18n';
+import i18n from '../src/i18n';
 
 const Screen = () => {
+  const [loading, setLoading] = useState(false);
   return (
     <FadeInView>
-    <View style={rtlStyles} accessible={{true}} accessibilityLabel="אזור תצוגה" style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
-      <Text accessible={{true}} accessibilityLabel="טקסט" style={{ ...styles.title }}>{{ i18n.t('notifications_title') }}</Text>
+    <View style={rtlStyles} accessible={true} accessibilityLabel="אזור תצוגה" style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
+      <Text accessible={true} accessibilityLabel="טקסט" style={{ ...styles.title }}>{i18n.t('notifications_title')}</Text>
     
   {!loading && (
     <View style={{ alignItems: 'center', marginTop: 40 }}>

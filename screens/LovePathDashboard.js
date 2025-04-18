@@ -6,15 +6,15 @@ const rtlStyles = {
 };
 
 
-import FadeInView from "./FadeInView";
-import React from 'react';
+import FadeInView from "../src/FadeInView";
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, I18nManager } from 'react-native';
-import i18n from '../locales/i18n';
 
 const LovePathDashboard = () => {
+  const [loading, setLoading] = useState(false);
   return (
     <FadeInView>
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel="לוח של LovePath">
         לוח של LovePath
       </Text>

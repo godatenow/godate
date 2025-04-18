@@ -1,56 +1,101 @@
-
 //     hooks    
 import { theme } from '../../theme/theme';
 import { Image as RNImage } from 'react-native';
-import React from 'react';
-import { useState, useEffect } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { LazyImage } from '../components/LazyImage';
+import { Button } from '../components/Button';
+import { useTranslation } from 'react-i18next';
 
 // screens/LovePathQuiz.js
 const LovePathQuiz = ({ navigation }) => {
   const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
+
   const next = () => {
     if (step < 3) setStep(step + 1);
     else navigation.navigate('LovePathJourney');
   };
+
   return (
-    <View style={{ textAlign: 'right', writingDirection: 'rtl', styles.container }}>
+    <View style={styles.container}>
       <LazyImage
         source={require('../../assets/logo/GoDate_Logo_compressed.webp')}
-        style={{
-          width: 160,
-          height: 160,
-          resizeMode: 'contain',
-          alignSelf: 'center',
-          marginVertical: 20
-        }}
+        style={styles.logo}
       />
 
-      <Text accessibilityLabel=" " style={{ textAlign: 'right', writingDirection: 'rtl', styles.title }}> {step}  3</Text>
-      <Text accessibilityLabel=" t(" style={{ textAlign: 'right', writingDirection: 'rtl', styles.question }}>{t(")    ?")}</Text>
-      <Button title="t(" accessibilityRole=")buttont(" accessibilityLabel=") " onPress={next} />
-    
-  {!loading && (
-    <View style={{ alignItems: 'center', marginTop: 40 }}>
-      <Text style={{ fontFamily: theme.fonts.regular,
-    textAlign: theme.textAlign,
-    fontSize: 18, fontWeight: 'bold', color: '#ff4081' }}>
-        התחל/י עכשיו – החיבור הבא שלך מחכה כאן!
+      <Text style={styles.stepCounter}>
+        {step} / 3
       </Text>
-    </View>
-  )}
 
-</View>
+      <Text style={styles.question}>
+        {t('lovePath.quiz.question' + step)}
+      </Text>
+
+      <Button 
+        title={t('common.next')}
+        onPress={next}
+        style={styles.button}
+      />
+    
+      {!loading && (
+        <View style={styles.callToAction}>
+          <Text style={styles.callToActionText}>
+            {t('lovePath.quiz.callToAction')}
+          </Text>
+        </View>
+      )}
+    </View>
   );
 };
+
 const styles = StyleSheet.create({
-  container: { padding: 20 },
-  title: { fontFamily: theme.fonts.regular,
+  container: {
+    ...theme.layout.container,
+    writingDirection: theme.direction,
+    backgroundColor: theme.colors.background
+  },
+  logo: {
+    width: 160,
+    height: 160,
+    resizeMode: 'contain',
+    alignSelf: 'center',
+    marginVertical: theme.spacing.lg
+  },
+  stepCounter: {
+    fontFamily: theme.fonts.bold,
+    fontSize: theme.typography.h2.fontSize,
+    fontWeight: theme.typography.h2.fontWeight,
     textAlign: theme.textAlign,
-    fontSize: 20, fontWeight: 'bold', marginBottom: 10 },
-  question: { fontFamily: theme.fonts.regular,
+    color: theme.colors.text.primary,
+    marginBottom: theme.spacing.sm
+  },
+  question: {
+    fontFamily: theme.fonts.regular,
+    fontSize: theme.typography.body1.fontSize,
     textAlign: theme.textAlign,
-    fontSize: 16, marginBottom: 20 }
+    color: theme.colors.text.primary,
+    marginBottom: theme.spacing.lg
+  },
+  button: {
+    backgroundColor: theme.colors.button.background,
+    padding: theme.spacing.md,
+    marginTop: theme.spacing.md
+  },
+  callToAction: {
+    ...theme.layout.centered,
+    marginTop: theme.spacing.xl
+  },
+  callToActionText: {
+    fontFamily: theme.fonts.regular,
+    fontSize: theme.typography.h2.fontSize,
+    fontWeight: theme.typography.h2.fontWeight,
+    color: theme.colors.primary,
+    textAlign: theme.textAlign
+  }
 });
+
 export default LovePathQuiz;
 
 // Firestore collection reference: users

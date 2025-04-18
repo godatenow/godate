@@ -1,0 +1,43 @@
+{
+  "common": {
+    "home": "Home",
+    "matches": "Matches",
+    "chat": "Chat",
+    "stories": "Stories",
+    "lovePath": "Love Path",
+    "profile": "Profile",
+    "settings": "Settings",
+    "notifications": "Notifications",
+    "about": "About",
+    "help": "Help",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "forgotPassword": "Forgot Password",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password"
+  },
+  "profile": {
+    "editProfile": "Edit Profile",
+    "personalInfo": "Personal Information",
+    "preferences": "Preferences",
+    "photos": "Photos",
+    "bio": "Bio",
+    "interests": "Interests"
+  },
+  "matches": {
+    "newMatch": "New Match",
+    "matchRate": "Match Rate",
+    "compatibility": "Compatibility",
+    "sendMessage": "Send Message"
+  },
+  "chat": {
+    "typeMessage": "Type a message...",
+    "send": "Send",
+    "noMessages": "No messages yet"
+  }
+} 

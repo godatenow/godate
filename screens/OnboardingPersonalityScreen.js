@@ -37,7 +37,7 @@ export default function OnboardingPersonalityScreen() {
   };
 
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title}>איך היית מגדיר את עצמך בהיכרות?</Text>
       {stylesList.map((style) => (
         <TouchableOpacity

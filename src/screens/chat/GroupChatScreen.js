@@ -11,7 +11,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 export default function GroupChatScreen() {
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.text} accessibilityLabel=t("תוכן נגיש")>{t(t("'   "))}</Text accessibilityLabel=t("תוכן נגיש")>
     
   {!loading && (

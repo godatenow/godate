@@ -21,8 +21,8 @@ const validationSchema = Yup.object().shape({
 const LoginScreen = () => {
   return (
     <FadeInView>
-    <View style={rtlStyles} accessible={{true}} accessibilityLabel="אזור תצוגה" style={styles.container}>
-      <Text accessible={{true}} accessibilityLabel="טקסט" style={styles.title}>{i18n.t('login_title')}</Text>
+    <View style={rtlStyles} accessible={true} accessibilityLabel="אזור תצוגה" style={styles.container}>
+      <Text accessible={true} accessibilityLabel="טקסט" style={styles.title}>{i18n.t('login_title')}</Text>
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={validationSchema}
@@ -31,16 +31,16 @@ const LoginScreen = () => {
         }}
       >
         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-          <View style={rtlStyles} accessible={{true}} accessibilityLabel="אזור תצוגה">
-            <Text accessible={{true}} accessibilityLabel="טקסט"Input
+          <View style={rtlStyles} accessible={true} accessibilityLabel="אזור תצוגה">
+            <Text accessible={true} accessibilityLabel="טקסט"Input
               style={styles.input}
               placeholder={i18n.t('email')}
               onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
               value={values.email}
             />
-            {touched.email && errors.email && <Text accessible={{true}} accessibilityLabel="טקסט" style={styles.error}>{errors.email}</Text>}
-            <Text accessible={{true}} accessibilityLabel="טקסט"Input
+            {touched.email && errors.email && <Text accessible={true} accessibilityLabel="טקסט" style={styles.error}>{errors.email}</Text>}
+            <Text accessible={true} accessibilityLabel="טקסט"Input
               style={styles.input}
               placeholder={i18n.t('password')}
               secureTextEntry
@@ -48,7 +48,7 @@ const LoginScreen = () => {
               onBlur={handleBlur('password')}
               value={values.password}
             />
-            {touched.password && errors.password && <Text accessible={{true}} accessibilityLabel="טקסט" style={styles.error}>{errors.password}</Text>}
+            {touched.password && errors.password && <Text accessible={true} accessibilityLabel="טקסט" style={styles.error}>{errors.password}</Text>}
             <Button title={i18n.t('login')} onPress={handleSubmit} />
           
   {!loading && (

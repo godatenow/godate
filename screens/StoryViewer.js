@@ -26,7 +26,7 @@ const StoryViewer = () => {
       <Text style={styles.header}>סטוריז מהקהילה</Text>
       {stories.map((story) => (
         <AppCard key={story.id} title={story.user}>
-          <Image source={{ uri: story.image }} style={styles.image} / accessibilityLabel="תמונה" accessible={true}>
+          <Image source={{ uri: story.image }} style={styles.image}  accessibilityLabel="תמונה" accessible={true}/>
           <Text style={styles.text}>{story.text}</Text>
           <Text style={styles.time}>{story.time}</Text>
         </AppCard>

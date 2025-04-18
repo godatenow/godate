@@ -14,7 +14,7 @@ const ReactToStoryScreen = () => {
   const [reaction, setReaction] = useState('');
 
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>{t(" t(")}</Text accessibilityLabel=")תוכן נגיש">
       <Image
         source={{ uri: 'https://example.com/story.jpg' }}

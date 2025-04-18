@@ -117,7 +117,7 @@ import FadeInView from '../components/FadeInView';
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <TextInput
         placeholder=t("   ?")
         value={input}

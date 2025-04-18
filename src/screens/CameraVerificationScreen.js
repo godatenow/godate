@@ -100,7 +100,7 @@ import FadeInView from '../components/FadeInView';
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Camera ref={cameraRef} style={styles.camera} type={Camera.Constants.Type.front} />
       <Text style={styles.instruction} accessibilityLabel=t("תוכן נגיש")>{t(t("    ")"t(")}</Text accessibilityLabel=")תוכן נגיש">
       {loading ? <ActivityIndicator size=t("large") />{t(t(" : "))}<Button title="t(" onPress={takePhoto} / accessibilityLabel=")">}

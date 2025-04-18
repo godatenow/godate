@@ -6,37 +6,34 @@ const rtlStyles = {
 };
 
 
-import { useWindowDimensions, Platform } from 'react-native';
+import {  Platform } from 'react-native';
 
-const { width } = useWindowDimensions();
 const isWeb = Platform.OS === 'web';
-const isLargeScreen = isWeb && width > 1024;
 
 
-import FadeInView from "./FadeInView";
+import FadeInView from "../src/FadeInView";
 import React, { useState, useEffect } from 'react';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Button, View, Text, StyleSheet, I18nManager } from 'react-native';
-import i18n from '../locales/i18n';
+import i18n from '../src/i18n';
 
 const Screen = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
   const timeout = setTimeout(() => {
     setLoading(false);
   }, 1500);
-  return (
-    <FadeInView>) => clearTimeout(timeout    </FadeInView>
-  );
+  return ()=> {clearTimeout(timeout)}
+  
 }, []);
 
   if (loading) return <LoadingSpinner />;
 
   return (
-    <FadeInView>
-    <View style={rtlStyles} accessible={{true}} accessibilityLabel="אזור תצוגה" style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
-      <Text accessible={{true}} accessibilityLabel="טקסט" style={{ ...styles.title }}>{{ i18n.t('home_title') }}</Text>
+      <FadeInView>
+      <View  accessible={true} accessibilityLabel="אזור תצוגה" style={[rtlStyles,{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }]}>
+      <Text accessible={true} accessibilityLabel="טקסט" style={{ ...styles.title }}>{ i18n.t('home_title') }</Text>
     
   {!loading && (
     <View style={{ alignItems: 'center', marginTop: 40 }}>

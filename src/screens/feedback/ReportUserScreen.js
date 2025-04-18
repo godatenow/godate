@@ -11,7 +11,7 @@ import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
 export default function ReportUserScreen() {
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>{t("  t(")}</Text accessibilityLabel=")תוכן נגיש">
       <TextInput placeholder=" ?t(" style={styles.input} multiline / accessibilityLabel=")תוכן נגיש">
       <Button title=" t(" onPress={() = accessibilityLabel=")תוכן נגישt("> {}} / accessibilityLabel=")תוכן נגיש">

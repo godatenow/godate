@@ -12,7 +12,7 @@ import { View, ActivityIndicator, StyleSheet, Text, TouchableOpacity } from 'rea
 export default function LoadingScreen({ message = t(" ..."), onCancel }) {
   return (<FadeInView>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <ActivityIndicator size=t("large") color=t("#ff5b77") />
       <Text style={styles.text} accessibilityLabel=t("תוכן נגיש")>{message}</Text accessibilityLabel=t("תוכן נגיש")>
       {onCancel && (

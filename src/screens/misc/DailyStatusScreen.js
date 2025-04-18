@@ -53,7 +53,7 @@ const statuses = [
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>{t(t("    ?"))}</Text accessibilityLabel=t("תוכן נגיש")>
       <FlatList
         ListEmptyComponent={<EmptyState title='לא נמצאו תוצאות' subtitle='נסה שוב או שנה סינון' />}

@@ -15,7 +15,7 @@ const { width } = Dimensions.get('window');
 
 const MatchCelebration = () => {
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <LazyImage
         source={require('../../assets/logo/GoDate_Logo_compressed.webp')}
         style={{

@@ -49,7 +49,7 @@ const CompatibilityQuizScreen = () => {
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.header} accessibilityLabel=t("תוכן נגיש")>{t(" t(")}</Text accessibilityLabel=")תוכן נגיש">
       <Text accessibilityLabel=t("תוכן נגיש")>{t(t("   ?"))}</Text accessibilityLabel=t("תוכן נגיש")>
       <TextInput

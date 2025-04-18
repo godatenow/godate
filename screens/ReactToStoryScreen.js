@@ -18,7 +18,7 @@ const ReactToStoryScreen = () => {
         <Image
           source={{ uri: 'https://placekitten.com/400/200' }}
           style={styles.storyImage}
-        / accessibilityLabel="תמונה" accessible={true}>
+         accessibilityLabel="תמונה" accessible={true}/>
         <Text style={styles.label}>מה תרצה להגיב?</Text>
         <TextInput
           value={response}

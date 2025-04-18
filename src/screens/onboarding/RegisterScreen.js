@@ -27,7 +27,7 @@ export default function RegisterScreen() {
   };
 
   return (
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       {Object.keys(initialState).map((key) => (
         <TextInput
           key={key}

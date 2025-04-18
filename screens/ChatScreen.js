@@ -7,23 +7,23 @@ const rtlStyles = {
 
 import Toast from '../components/Toast';
 
-import { useWindowDimensions, Platform } from 'react-native';
+import {  Platform } from 'react-native';
 
-const { width } = useWindowDimensions();
 const isWeb = Platform.OS === 'web';
-const isLargeScreen = isWeb && width > 1024;
 
 
-import FadeInView from "./FadeInView";
-import React from 'react';
+import FadeInView from "../src/FadeInView";
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, I18nManager } from 'react-native';
-import i18n from '../locales/i18n';
+import i18n from '../src/i18n';
 
 const Screen = () => {
+  const [loading, setLoading] = useState(false);
+  const [toastVisible, setToastVisible] = useState(false);
   return (
     <FadeInView>
-    <View style={rtlStyles} accessible={{true}} accessibilityLabel="אזור תצוגה" style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
-      <Text accessible={{true}} accessibilityLabel="טקסט" style={{ ...styles.title }}>{{ i18n.t('chat_title') }}</Text>
+    <View style={rtlStyles} accessible={true} accessibilityLabel="אזור תצוגה" style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
+      <Text accessible={true} accessibilityLabel="טקסט" style={{ ...styles.title }}>{ i18n.t('chat_title') }</Text>
       <Toast message='נא להשלים את הפרופיל לפני שימוש בפיצ׳ר זה' visible={toastVisible} onHide={() => setToastVisible(false)} />
 
   {!loading && (

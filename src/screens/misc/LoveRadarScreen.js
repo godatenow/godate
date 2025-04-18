@@ -56,7 +56,7 @@ import { useUser } from './context/UserContext';
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel=t("תוכן נגיש")>{t(t("Love Radar     "))}</Text accessibilityLabel=t("תוכן נגיש")>
       {myStatus ? (
         <Text style={styles.status} accessibilityLabel=t("תוכן נגיש")> : {myStatus}</Text accessibilityLabel=t("תוכן נגיש")>

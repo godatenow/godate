@@ -6,6 +6,8 @@ import AppCard from '../components/ui/AppCard';
 
 const LoveJournalScreen = () => {
   const [entry, setEntry] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [toastVisible, setToastVisible] = useState(false);
 
   const handleSave = () => {
     Alert.alert("נשמר!", "הרשומה נשמרה ביומן האהבה.");

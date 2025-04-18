@@ -65,7 +65,7 @@ const rtlStyles = {
 
 </View>
 
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       {image && <LazyImage source={{ uri: image }} style={styles.image} />}
       <Button title=" " onPress={pickImage} / accessibilityLabel="">
       <TextInput

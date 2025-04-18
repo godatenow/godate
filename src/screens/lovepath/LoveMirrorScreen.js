@@ -18,7 +18,7 @@ import ErrorBoundary from '../../../components/ErrorBoundary';
 
 const LoveMirrorContent = () => {
   const [reflection, setReflection] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchReflection = async () => {

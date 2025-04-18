@@ -1,9 +1,7 @@
 
 import { useWindowDimensions, Platform , View, Text, ScrollView, StyleSheet } from 'react-native';
 
-const { width } = useWindowDimensions();
 const isWeb = Platform.OS === 'web';
-const isLargeScreen = isWeb && width > 1024;
 
 
 import React, { useEffect, useState } from 'react';
@@ -12,7 +10,7 @@ import LoadingState from '../components/ui/LoadingState';
 import AppCard from '../components/ui/AppCard';
 
 const LovePathScreen = ({ userId }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(null);
 
   useEffect(() => {

@@ -32,7 +32,7 @@
         "NOTIFICATIONS"
       ],
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
       }
     },
@@ -44,6 +44,10 @@
       "eas": {
         "projectId": "5e56b4e2-3d68-479f-aa73-894c29cd503c"
       }
-    }
+    },
+    "plugins": [
+      "expo-font",
+      "expo-localization"
+    ]
   }
 }

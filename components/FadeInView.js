@@ -1,4 +1,4 @@
-import FadeInView from "./FadeInView";
+// import FadeInView from "./FadeInView";
 import React, { useRef, useEffect } from 'react';
 import { Animated } from 'react-native';
 

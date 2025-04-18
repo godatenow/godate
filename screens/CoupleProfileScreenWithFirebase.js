@@ -6,15 +6,15 @@ const rtlStyles = {
 };
 
 
-import FadeInView from "./FadeInView";
+import FadeInView from "../src/FadeInView";
 import React from 'react';
 import { View, Text, StyleSheet, I18nManager } from 'react-native';
-import i18n from '../locales/i18n';
+import i18n from '../src/i18n';
 
 const CoupleProfileScreenWithFirebase = () => {
   return (
     <FadeInView>
-    <View style={rtlStyles} style={styles.container}>
+    <View style={[rtlStyles, styles.container]}>
       <Text style={styles.title} accessibilityLabel="פרופיל זוגי">
         פרופיל זוגי
       </Text>

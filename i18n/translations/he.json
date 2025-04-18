@@ -1,0 +1,43 @@
+{
+  "common": {
+    "home": "דף הבית",
+    "matches": "התאמות",
+    "chat": "צ'אט",
+    "stories": "סיפורים",
+    "lovePath": "מסלול האהבה",
+    "profile": "פרופיל",
+    "settings": "הגדרות",
+    "notifications": "התראות",
+    "about": "אודות",
+    "help": "עזרה",
+    "privacy": "פרטיות",
+    "terms": "תנאי שימוש"
+  },
+  "auth": {
+    "login": "התחברות",
+    "register": "הרשמה",
+    "forgotPassword": "שכחתי סיסמה",
+    "email": "דוא\"ל",
+    "password": "סיסמה",
+    "confirmPassword": "אימות סיסמה"
+  },
+  "profile": {
+    "editProfile": "עריכת פרופיל",
+    "personalInfo": "מידע אישי",
+    "preferences": "העדפות",
+    "photos": "תמונות",
+    "bio": "אודותיי",
+    "interests": "תחומי עניין"
+  },
+  "matches": {
+    "newMatch": "התאמה חדשה",
+    "matchRate": "אחוז התאמה",
+    "compatibility": "תאימות",
+    "sendMessage": "שליחת הודעה"
+  },
+  "chat": {
+    "typeMessage": "הקלד/י הודעה...",
+    "send": "שלח",
+    "noMessages": "אין הודעות עדיין"
+  }
+} 

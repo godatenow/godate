@@ -13,7 +13,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const EntryScreen = () => {
   const navigation = useNavigation();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const checkWelcome = async () => {
